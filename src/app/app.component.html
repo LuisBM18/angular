@@ -1,0 +1,56 @@
+<div class="container mt-5">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Iniciar Sesion</h3>
+
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="mb-4">
+						<div class="card-header">
+							<label for="email" class="form-label"><h3>Correo electronico</h3></label>
+							<input type="email" class="form-control" name="email" [(ngModel)]="administrador.Correo" >
+						</div>
+					</div>
+					<div class="mb-4">
+						<div class="card-header">
+							<label for="password" class="form-label"><h3>Contraseña</h3></label>
+							<input type="password" class="form-control" name="password" [(ngModel)]="administrador.Password">
+						</div>
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Recordar contraseña
+					</div>
+					<li><hr class="dropdown-divider"></li>
+					<div class="form-group">
+						<input type="submit" value="Iniciar" class="btn float-right login_btn" (click)="Acceder()">
+            <button (click)="Agregar()" class="btn btn-primary" > Agregar</button>
+          </div>
+
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Iniciar Sesion como administrador<a routerLink="/login">Click Aqui</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Olvidaste tu contraseña?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="col-md-8 mt-4">
+    <ul class="list-group">
+      <li
+      *ngFor="let administrador1 of ListaAdmin index as i"
+      class="list-group-item list-group-item-action"
+      (click)="editar(i)">
+      <span class="badge  bg-primary">gg</span>{{ administrador.Correo }} - {{ administrador.Password }}
+      <button type="button" class="btn btn-danger" (click)="eliminar(i)">Eliminar</button>
+      </li>
+    </ul>
+        </div>
+      </div>
+
+
