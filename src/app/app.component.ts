@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 import { Administrador } from './interfaces/Administrador';
@@ -15,6 +16,7 @@ export class AppComponent {
 
   }
   Acceder(): void {
+    identifierName;
     this.loginAdmin.push(this.administrador)
     console.log(this.administrador);
   }
