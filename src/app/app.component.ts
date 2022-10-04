@@ -16,7 +16,6 @@ export class AppComponent {
 
   }
   Acceder(): void {
-    identifierName;
     this.loginAdmin.push(this.administrador)
     console.log(this.administrador);
   }
