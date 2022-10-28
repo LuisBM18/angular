@@ -1,6 +1,4 @@
-import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-
 import { Administrador } from './interfaces/Administrador';
 @Component({
   selector: 'app-root',
@@ -12,15 +10,12 @@ export class AppComponent {
   // public loginAdmin: Administrador[]=[];
   public administrador1 : Administrador = {
     id: 1,
-    Correo: "zxc",
-    Password: "xzc",
+    Correo: "luiss_180595@hotmail.com",
+    Password: "1234luis8",
   }
-  public administrador2 : Administrador = {
-    id: 2,
-    Correo: "zadsxc",
-    Password: "xzcadssda",
-  }
-  ListaAdmin: Administrador[]=[this.administrador1, this.administrador2];
+
+  ListaAdmin: Administrador[]=[this.administrador1];
+
   Acceder(): void {
     this.ListaAdmin.push(this.administrador)
     console.log(this.administrador);
@@ -29,6 +24,7 @@ export class AppComponent {
   public posicion: number = -1
   Agregar(): void {
     if(this.posicion == -1){
+      this.administrador.id = this.ListaAdmin.length + 1;
     this.ListaAdmin.push(this.administrador);
     this.administrador= this.AdministradorVacio();
     console.log("Hay:",this.ListaAdmin.length,"administradores")
@@ -39,7 +35,7 @@ export class AppComponent {
       selectAdministrador.Correo = this.administrador.Correo;
       selectAdministrador.Password = this.administrador.Password;
       this.administrador = this.AdministradorVacio();
-      this.posicion = +1;
+      this.posicion = -1;
       console.table(this.ListaAdmin)
     }
 }
@@ -57,6 +53,7 @@ export class AppComponent {
 
    editar(i: number):void{
     let selectAdministrador: Administrador =  this.ListaAdmin[i];
+    this.administrador.id = selectAdministrador.id;
     this.administrador.Correo = selectAdministrador.Correo;
     this.administrador.Password = selectAdministrador.Password;
     this.posicion = i;
