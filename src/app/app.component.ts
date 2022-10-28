@@ -9,23 +9,28 @@ import { Administrador } from './interfaces/Administrador';
 })
 export class AppComponent {
   title = 'MinimarketBelu';
-  public loginAdmin: Administrador[]=[];
+  // public loginAdmin: Administrador[]=[];
   public administrador1 : Administrador = {
-    Correo: "",
-    Password: "",
-
+    id: 1,
+    Correo: "zxc",
+    Password: "xzc",
   }
+  public administrador2 : Administrador = {
+    id: 2,
+    Correo: "zadsxc",
+    Password: "xzcadssda",
+  }
+  ListaAdmin: Administrador[]=[this.administrador1, this.administrador2];
   Acceder(): void {
-    this.loginAdmin.push(this.administrador)
+    this.ListaAdmin.push(this.administrador)
     console.log(this.administrador);
   }
-  ListaAdmin: Administrador[]=[this.administrador1];
   public administrador:Administrador=this.AdministradorVacio();
   public posicion: number = -1
   Agregar(): void {
     if(this.posicion == -1){
-    this.ListaAdmin.push(this.administrador1);
-    this.administrador1= this.AdministradorVacio();
+    this.ListaAdmin.push(this.administrador);
+    this.administrador= this.AdministradorVacio();
     console.log("Hay:",this.ListaAdmin.length,"administradores")
     console.table(this.ListaAdmin)
     }
@@ -40,6 +45,7 @@ export class AppComponent {
 }
   AdministradorVacio(): Administrador{
   return{
+    id: 0,
     Correo: "",
     Password: "",
   };
@@ -51,8 +57,8 @@ export class AppComponent {
 
    editar(i: number):void{
     let selectAdministrador: Administrador =  this.ListaAdmin[i];
-    this.administrador1.Correo = selectAdministrador.Correo;
-    this.administrador1.Password = selectAdministrador.Password;
+    this.administrador.Correo = selectAdministrador.Correo;
+    this.administrador.Password = selectAdministrador.Password;
     this.posicion = i;
     console.table(this.ListaAdmin)
   };

@@ -1,3 +1,4 @@
+
 <div class="container mt-5">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -43,10 +44,11 @@
   <div class="col-md-8 mt-4">
     <ul class="list-group">
       <li
-      *ngFor="let administrador1 of ListaAdmin index as i"
+      *ngFor="let administrador of ListaAdmin index as i"
       class="list-group-item list-group-item-action"
       (click)="editar(i)">
-      <span class="badge  bg-primary">gg</span>{{ administrador.Correo }} - {{ administrador.Password }}
+
+      <span class="badge  bg-primary">{{administrador.id }}</span>{{ administrador.Correo }} - {{ administrador.Password }}
       <button type="button" class="btn btn-danger" (click)="eliminar(i)">Eliminar</button>
       </li>
     </ul>
